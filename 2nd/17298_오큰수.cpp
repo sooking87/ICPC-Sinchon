@@ -1,32 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> arr;
-int NGE(int idx) {
-    int key = arr[idx];
-    int res = -1;
-    for (int i = idx+1; i < arr.size(); i++) {
-        if (key < arr[i]) {
-            res = arr[i];
-            break;
-        }
-    }
-    return res;
-}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.tie(nullptr);
+    cout.tie(nullptr); 
 
     int n;
     int temp;
+    int arr[1000001];
+    int answer[1000001];
+    stack<int> idxStack; // 인덱스를 넣는 스택
     cin >> n;
     for (int i = 0; i < n; i++) {
-        cin >> temp;
-        arr.push_back(temp);
-    }
-    // O(N^2)이라서 시간 초과가 나는 것 같다. -> 어떻게 하면 복잡도를 줄일 수 있을까?
+        cin >> arr[i];
+    } 
     for (int i = 0; i < n; i++) {
-        cout << NGE(i) << " ";
+        while (!idxStack.empty() && arr[idxStack.top()] < arr[i]) {
+            answer[idxStack.top()] = arr[i];
+            idxStack.pop();
+        }
+        idxStack.push(i);
     }
+    while (!idxStack.empty()) {
+        answer[idxStack.top()] = -1;
+        idxStack.pop();
+    }
+    for (int i = 0; i < n; i++) {
+        cout << answer[i] << '\n';
+    }
+
+    
 }
