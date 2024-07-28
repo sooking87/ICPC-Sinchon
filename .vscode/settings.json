@@ -7,6 +7,19 @@
         "ios": "cpp",
         "vector": "cpp",
         "deque": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "__node_handle": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "regex": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp"
     }
 }
